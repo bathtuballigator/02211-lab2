@@ -1,0 +1,19 @@
+// s201905, Benedicte M E Jensen
+
+
+defproc demux (chan?(int<8>) in; chan?(bool) ctrl; chan!(int<8>) out0; chan!(int<8>) out1)
+{
+// synchronize input and control, then steer data
+
+	int<8> defval;
+	chp{
+	defval := 0;
+	*[ 
+	in?	;		// synchronize in
+	ctrl?	;		// synchronize ctrl				
+	[ ~ctrl -> out0!in ; out1!defval
+	[] ctrl -> out1!in ; out0!defval
+	]
+	]			// while loop end
+	}
+}

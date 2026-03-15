@@ -1,0 +1,24 @@
+//s201905, Benedicte M E Jensen
+
+import "source.act";
+import "demux.act";
+
+
+
+defproc sink(chan?(int<8>) in)
+{
+	int<8> val;
+	chp{
+	*[in?val ; log("Received value from demux: ", val)]
+	}
+}
+
+
+defproc test() // Test program, runs each time you cycle
+{
+	sink snk0;
+	sink snk1;
+	sourcebool<true> ctrl;
+	source8bit<0b00100000> src;
+	demux dm(src.out, ctrl.out, snk0.in, snk1.in);
+}

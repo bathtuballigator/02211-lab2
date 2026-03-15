@@ -1,0 +1,39 @@
+// s201905, Benedicte M E Jensen
+
+defproc source(chan!(int<8>) out) //Define the source, writes a stream of 00000000
+{
+	int<8> i;	// i is 8 bits wide
+	chp{		
+		i := 0b00000000;	// i is 0
+		*[out!i]	// while true, output i
+	}
+}
+
+
+/////
+// 1-bit (bool) constant-value source template, val is value
+/////
+
+
+template<pbool val> defproc sourcebool(chan!(bool) out) //Define the source, writes a stream of val (bool)
+{
+	bool i;
+	chp{		
+		i := val;	// i is val
+		*[out!i]		// while true, output i
+	}
+}
+
+
+/////
+// 8-bit constant-value source template, X is value
+/////
+
+template<pint val> defproc source8bit(chan!(int<8>) out) //Define the source, writes a stream of val (8 bits)
+{
+	int<8> i;	// i is 8 bits wide
+	chp{		
+		i := val;	// i is val
+		*[out!i]		// while true, output i
+	}
+}
