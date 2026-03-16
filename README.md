@@ -13,18 +13,19 @@ March 16, 2026
 
 ***
 ## Work distribution
-
-### Part 1: CHP
-- **Source**, *Benedicte*
-- **Sink**, *Ibtihal*
-- **One-place-buffer**, *Rose*
+Each person does both parts of work on two components.
+### Arjun
 - **Initial-token buffer**, *Arjun*
-
-### Part 2: Synthesis
-- **two-input function**, *Rose*
 - **two-way copy**, *Arjun*
-- **two-way mux**, *Ibtihal*
+### Benedicte
+- **Source**, *Benedicte*
 - **two-way demux**, *Benedicte*
+### Ibtihal
+- **Sink**, *Ibtihal*
+- **two-way mux**, *Ibtihal*
+### Rose
+- **One-place-buffer**, *Rose*
+- **two-input function**, *Rose*
 
 ***
 The goal of this lab is to write ACT-CHP descriptions of data flow elements, run synthesis and simulate them to verify correct behavior.
