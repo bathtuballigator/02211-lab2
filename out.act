@@ -1,0 +1,70 @@
+import "demux.act";
+import "syn/bdopt/_all_.act";
+open syn;
+import "datapath.act";
+
+defproc sdt_demux <: demux ()
++{
+  syn::sdtvar<8> defval;
+  syn::sdtchan<8> out1;
+  syn::sdtboolchan ctrl;
+  syn::sdtchan<8> out0;
+  syn::sdtchan<8> in;
+}
+{
+ refine {
+   syn::muxoutport<8,2> out1_muxo(out1);
+   syn::muxinport<8,1> in_muxi(in);
+   syn::muxoutport<8,2> out0_muxo(out0);
+   syn::var_int_ports<8,1,2> var_defval(defval);
+   syn::mux_bool_inport<1> ctrl_muxi(ctrl);
+   a1of1 c0;
+   a1of1 c1;
+   syn::expr::blk0 e0();
+   // wrap and ctl bypass
+   syn::expr::nullint<8> e1();
+   e1.out.d=e0.out;
+   e1.out.a = e1.out.r;
+   //end expr blk0
+   syn::transfer<8> s_0(c1, e1.out,var_defval.in[0]);
+   a1of1 c2;
+   syn::trueto1of2 e2;
+   a1of1 c3;
+   a1of1 c4;
+   syn::recvport_drop<8> s_1(c4,in_muxi.m[0]);
+   a1of1 c5;
+   syn::recvport_drop<1> s_2(c5,ctrl_muxi.m[0]);
+   a1of1 c6;
+  syn::expr::nullint<1> e3(var_ctrl.out[1]);
+   syn::expr::blk1 e4(e3.out.d[0]);
+   // wrap and ctl bypass
+   syn::expr::null e5();
+   e5.out.d[0]=e4.out;
+   e3.out.r = e5.out.r;
+   std::gates::ctree<1,false> ackmerge5;
+   /* delay: 2.172e-11 */
+   syn::delay<1> delayblk5 (ackmerge5.out, e5.out.a);
+   e3.out.a = ackmerge5.in[0];
+   //end expr blk1
+   syn::sdtvar<1> fvar0;
+   syn::var_int_ports<1,1,1> var_fvar0(fvar0);
+   a1of1 c7;
+   syn::transfer<1> s_3(c7, e5.out,var_fvar0.in[0]);
+   a1of1 c8;
+   syn::fullseq s_4(c8,c7);
+  syn::expr::nullint<1> e6(var_fvar0.out[0]);
+   syn::bdto1of2 e7;
+   e7.out.r = c8.r; c8.a = e6.out.r; e7.out.d=e6.out.d; e7.out.a=e6.out.a;
+ syn::sdtboolchan_to_probe s_5(ctrl);
+ syn::probed_clause<1,{1},1> s_6({e7.out},{s_5.probe});
+  syn::expr::nullint<1> e8(var_ctrl.out[2]);
+   syn::expr::blk2 e9(e8.out.d[0]);
+   // wrap and ctl bypass
+   syn::expr::null e10();
+   e10.out.d[0]=e9.out;
+   e8.out.r = e10.out.r;
+   std::gates::ctree<1,false> ackmerge10;
+   /* delay: 6.642e-11 */
+   syn::delay<1> delayblk10 (ackmerge10.out, e10.out.a);
+   e8.out.a = ackmerge10.in[0];
+   //end expr blk2

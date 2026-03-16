@@ -1,0 +1,11 @@
+defproc adder (chan?(int<8>) n1; chan?(int<8>) n2; chan!(int<8>) out)
+{
+  int<8> sum;
+  int<8> tmp;
+  chp {
+    *[ n1?sum; n2?tmp;
+        sum := sum + tmp;
+        out!sum
+      ]
+  }
+}

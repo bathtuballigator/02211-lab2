@@ -1,0 +1,7 @@
+defproc oneplace (chan?(int<8>) l; chan!(int<8>) r)
+{
+  int<8> x;
+  chp {
+    *[ l?x; r!x ]
+  }
+}
