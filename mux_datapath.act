@@ -1,0 +1,540 @@
+namespace syn {
+
+export namespace expr {
+
+/* -- declarations -- */
+export defproc blk0tmp (bool? e1_50_6; bool! out_50_6);
+export defproc blk0 (bool? e1; bool! out);
+
+export defproc blk0tmp (bool? e1_50_6; bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   syn::INVX8 g0;
+   /*--- connections ---*/
+   g0(.A=e1_50_6, .Y=out_50_6);
+}
+
+export defproc blk0 (bool? e1; bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   bool e1_50_6;
+   blk0tmp _passthru_;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.e1_50_6=e1, .out_50_6=out);
+}
+
+/* -- declarations -- */
+export defproc blk1tmp (bool? e6_50_6; bool! out_50_6);
+export defproc blk1 (bool? e6; bool! out);
+
+export defproc blk1tmp (bool? e6_50_6; bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   syn::BUFX2 g0;
+   /*--- connections ---*/
+   g0(.A=e6_50_6, .Y=out_50_6);
+}
+
+export defproc blk1 (bool? e6; bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk1tmp _passthru_;
+   bool e6_50_6;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.e6_50_6=e6, .out_50_6=out);
+}
+
+/* -- declarations -- */
+export defproc blk2tmp (bool? e11_50_6; bool? e11_51_6; bool? e11_52_6; bool? e11_53_6; bool? e11_54_6; bool? e11_55_6; bool? e11_56_6; bool? e11_57_6; bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk2 (bool? e11[8]; bool! out[8]);
+
+export defproc blk2tmp (bool? e11_50_6; bool? e11_51_6; bool? e11_52_6; bool? e11_53_6; bool? e11_54_6; bool? e11_55_6; bool? e11_56_6; bool? e11_57_6; bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   syn::BUFX2 g2;
+   syn::BUFX2 g0;
+   syn::BUFX2 g6;
+   syn::BUFX2 g5;
+   syn::BUFX2 g3;
+   syn::BUFX2 g7;
+   syn::BUFX2 g4;
+   syn::BUFX2 g1;
+   /*--- connections ---*/
+   g0(.A=e11_50_6, .Y=out_50_6);
+   g1(.A=e11_51_6, .Y=out_51_6);
+   g2(.A=e11_52_6, .Y=out_52_6);
+   g3(.A=e11_53_6, .Y=out_53_6);
+   g4(.A=e11_54_6, .Y=out_54_6);
+   g5(.A=e11_55_6, .Y=out_55_6);
+   g6(.A=e11_56_6, .Y=out_56_6);
+   g7(.A=e11_57_6, .Y=out_57_6);
+}
+
+export defproc blk2 (bool? e11[8]; bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk2tmp _passthru_;
+   bool out_56_6;
+   bool e11_50_6;
+   bool out_55_6;
+   bool e11_53_6;
+   bool out_50_6;
+   bool e11_56_6;
+   bool out_57_6;
+   bool e11_51_6;
+   bool out_53_6;
+   bool e11_55_6;
+   bool out_51_6;
+   bool e11_57_6;
+   bool out_54_6;
+   bool e11_52_6;
+   bool out_52_6;
+   bool e11_54_6;
+   /*--- connections ---*/
+   _passthru_(.e11_50_6=e11[0], .e11_51_6=e11[1], .e11_52_6=e11[2], .e11_53_6=e11[3], .e11_54_6=e11[4], .e11_55_6=e11[5], .e11_56_6=e11[6], .e11_57_6=e11[7], .out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk3tmp (bool? e14_50_6; bool? e14_51_6; bool? e14_52_6; bool? e14_53_6; bool? e14_54_6; bool? e14_55_6; bool? e14_56_6; bool? e14_57_6; bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk3 (bool? e14[8]; bool! out[8]);
+
+export defproc blk3tmp (bool? e14_50_6; bool? e14_51_6; bool? e14_52_6; bool? e14_53_6; bool? e14_54_6; bool? e14_55_6; bool? e14_56_6; bool? e14_57_6; bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   syn::BUFX2 g2;
+   syn::BUFX2 g0;
+   syn::BUFX2 g6;
+   syn::BUFX2 g5;
+   syn::BUFX2 g3;
+   syn::BUFX2 g7;
+   syn::BUFX2 g4;
+   syn::BUFX2 g1;
+   /*--- connections ---*/
+   g0(.A=e14_50_6, .Y=out_50_6);
+   g1(.A=e14_51_6, .Y=out_51_6);
+   g2(.A=e14_52_6, .Y=out_52_6);
+   g3(.A=e14_53_6, .Y=out_53_6);
+   g4(.A=e14_54_6, .Y=out_54_6);
+   g5(.A=e14_55_6, .Y=out_55_6);
+   g6(.A=e14_56_6, .Y=out_56_6);
+   g7(.A=e14_57_6, .Y=out_57_6);
+}
+
+export defproc blk3 (bool? e14[8]; bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   bool e14_54_6;
+   blk3tmp _passthru_;
+   bool out_56_6;
+   bool e14_52_6;
+   bool e14_56_6;
+   bool out_55_6;
+   bool out_50_6;
+   bool e14_55_6;
+   bool out_57_6;
+   bool e14_50_6;
+   bool e14_51_6;
+   bool e14_53_6;
+   bool out_53_6;
+   bool out_51_6;
+   bool out_54_6;
+   bool e14_57_6;
+   bool out_52_6;
+   /*--- connections ---*/
+   _passthru_(.e14_50_6=e14[0], .e14_51_6=e14[1], .e14_52_6=e14[2], .e14_53_6=e14[3], .e14_54_6=e14[4], .e14_55_6=e14[5], .e14_56_6=e14[6], .e14_57_6=e14[7], .out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk4tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk4 (bool! out[8]);
+
+export defproc blk4tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+   out_51_6=GND;
+   out_52_6=Vdd;
+   out_53_6=GND;
+   out_54_6=Vdd;
+   out_55_6=GND;
+   out_56_6=GND;
+   out_57_6=GND;
+}
+
+export defproc blk4 (bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk4tmp _passthru_;
+   bool out_56_6;
+   bool out_55_6;
+   bool out_50_6;
+   bool out_57_6;
+   bool out_53_6;
+   bool out_51_6;
+   bool out_54_6;
+   bool out_52_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk5tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk5 (bool! out[8]);
+
+export defproc blk5tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+   out_51_6=GND;
+   out_52_6=GND;
+   out_53_6=Vdd;
+   out_54_6=GND;
+   out_55_6=GND;
+   out_56_6=Vdd;
+   out_57_6=Vdd;
+}
+
+export defproc blk5 (bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk5tmp _passthru_;
+   bool out_56_6;
+   bool out_55_6;
+   bool out_50_6;
+   bool out_57_6;
+   bool out_53_6;
+   bool out_51_6;
+   bool out_54_6;
+   bool out_52_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk6tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk6 (bool! out[8]);
+
+export defproc blk6tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+   out_51_6=Vdd;
+   out_52_6=GND;
+   out_53_6=Vdd;
+   out_54_6=Vdd;
+   out_55_6=Vdd;
+   out_56_6=Vdd;
+   out_57_6=Vdd;
+}
+
+export defproc blk6 (bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk6tmp _passthru_;
+   bool out_56_6;
+   bool out_55_6;
+   bool out_50_6;
+   bool out_57_6;
+   bool out_53_6;
+   bool out_51_6;
+   bool out_54_6;
+   bool out_52_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk7tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk7 (bool! out[8]);
+
+export defproc blk7tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+   out_51_6=Vdd;
+   out_52_6=GND;
+   out_53_6=Vdd;
+   out_54_6=GND;
+   out_55_6=GND;
+   out_56_6=GND;
+   out_57_6=GND;
+}
+
+export defproc blk7 (bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk7tmp _passthru_;
+   bool out_56_6;
+   bool out_55_6;
+   bool out_50_6;
+   bool out_57_6;
+   bool out_53_6;
+   bool out_51_6;
+   bool out_54_6;
+   bool out_52_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk8tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk8 (bool! out[8]);
+
+export defproc blk8tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+   out_51_6=GND;
+   out_52_6=Vdd;
+   out_53_6=GND;
+   out_54_6=GND;
+   out_55_6=Vdd;
+   out_56_6=Vdd;
+   out_57_6=GND;
+}
+
+export defproc blk8 (bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk8tmp _passthru_;
+   bool out_56_6;
+   bool out_55_6;
+   bool out_50_6;
+   bool out_57_6;
+   bool out_53_6;
+   bool out_51_6;
+   bool out_54_6;
+   bool out_52_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk9tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6);
+export defproc blk9 (bool! out[8]);
+
+export defproc blk9tmp (bool! out_50_6; bool! out_51_6; bool! out_52_6; bool! out_53_6; bool! out_54_6; bool! out_55_6; bool! out_56_6; bool! out_57_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+   out_51_6=Vdd;
+   out_52_6=Vdd;
+   out_53_6=GND;
+   out_54_6=Vdd;
+   out_55_6=GND;
+   out_56_6=GND;
+   out_57_6=Vdd;
+}
+
+export defproc blk9 (bool! out[8])
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk9tmp _passthru_;
+   bool out_56_6;
+   bool out_55_6;
+   bool out_50_6;
+   bool out_57_6;
+   bool out_53_6;
+   bool out_51_6;
+   bool out_54_6;
+   bool out_52_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out[0], .out_51_6=out[1], .out_52_6=out[2], .out_53_6=out[3], .out_54_6=out[4], .out_55_6=out[5], .out_56_6=out[6], .out_57_6=out[7]);
+}
+
+/* -- declarations -- */
+export defproc blk10tmp (bool! out_50_6);
+export defproc blk10 (bool! out);
+
+export defproc blk10tmp (bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+}
+
+export defproc blk10 (bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk10tmp _passthru_;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out);
+}
+
+/* -- declarations -- */
+export defproc blk11tmp (bool! out_50_6);
+export defproc blk11 (bool! out);
+
+export defproc blk11tmp (bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=Vdd;
+}
+
+export defproc blk11 (bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk11tmp _passthru_;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out);
+}
+
+/* -- declarations -- */
+export defproc blk12tmp (bool! out_50_6);
+export defproc blk12 (bool! out);
+
+export defproc blk12tmp (bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+}
+
+export defproc blk12 (bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk12tmp _passthru_;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out);
+}
+
+/* -- declarations -- */
+export defproc blk13tmp (bool! out_50_6);
+export defproc blk13 (bool! out);
+
+export defproc blk13tmp (bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=Vdd;
+}
+
+export defproc blk13 (bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk13tmp _passthru_;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out);
+}
+
+/* -- declarations -- */
+export defproc blk14tmp (bool! out_50_6);
+export defproc blk14 (bool! out);
+
+export defproc blk14tmp (bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=GND;
+}
+
+export defproc blk14 (bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk14tmp _passthru_;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out);
+}
+
+/* -- declarations -- */
+export defproc blk15tmp (bool! out_50_6);
+export defproc blk15 (bool! out);
+
+export defproc blk15tmp (bool! out_50_6)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   /*--- connections ---*/
+   out_50_6=Vdd;
+}
+
+export defproc blk15 (bool! out)
+{
+  spec { hazard(*) }
+
+   /*--- types ---*/
+   blk15tmp _passthru_;
+   bool out_50_6;
+   /*--- connections ---*/
+   _passthru_(.out_50_6=out);
+}
+
+
+}
+
+}

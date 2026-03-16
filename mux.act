@@ -1,0 +1,35 @@
+/* 
+*	Lab Two 
+* 
+*	Ibtihal Alkaseb 
+*	s215513 
+*	Group 1 
+*/
+
+
+
+/*
+*       mux
+*       2 inputs, 1 output
+*       selects one input channel based on the select signal
+*
+*       if sel = 0 -> y = a
+*       if sel = 1 -> y = b
+*/
+
+defproc mux (chan?(int<1>) sel; chan?(int<8>) a, b; chan!(int<8>) y)
+{
+  int<1> s;
+  int<8> xa, xb;
+
+  chp {
+    *[
+      sel?s;
+      [ s = 0 -> a?xa; y!xa
+      [] s = 1 -> b?xb; y!xb
+      ]
+    ]
+  }
+}
+
+

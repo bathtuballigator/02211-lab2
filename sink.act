@@ -1,0 +1,26 @@
+/*
+*	Lab Two
+*
+*	Ibtihal Alkaseb
+*	s215513
+*	Group 1
+*/
+
+
+
+/*
+*	sink 
+*	receives an input from the channel and stores it in x
+*/
+
+defproc sink (chan?(int<8>) in)
+{
+  int<8> x;
+
+  chp {
+    *[ in?x; log("Sink received the following value from source: ", x) ]
+  }
+}
+
+
+

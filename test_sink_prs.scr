@@ -1,0 +1,31 @@
+mode reset
+set GND 0
+
+set Reset 1
+cycle
+set Reset 0
+mode run
+
+watch c.r
+watch c.a
+watch c.d[0]
+watch c.d[1]
+watch c.d[2]
+watch c.d[3]
+watch c.d[4]
+watch c.d[5]
+watch c.d[6]
+watch c.d[7]
+
+cycle
+cycle 
+cycle
+cycle
+cycle 
+cycle
+cycle
+cycle 
+cycle
+cycle 
+
+exit

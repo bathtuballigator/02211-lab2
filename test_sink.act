@@ -1,0 +1,35 @@
+/*
+*       Lab Two
+*
+*       Ibtihal Alkaseb
+*       s215513
+*       Group 1
+*/
+
+
+
+import "sink.act";
+
+
+
+/*
+*       source
+*       generates values from 0 to 99 and sends them through the output channel
+*/
+
+defproc source (chan!(int<8>) out)
+{
+  int<8> i;
+  chp {
+    i := 0;
+  *[ i < 100 -> out!i; i := i + 1 ]
+  }
+}
+
+
+
+defproc test (chan(int<8>) c)
+{
+  source so(c);
+  sink si(c);
+}

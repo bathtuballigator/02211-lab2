@@ -1,0 +1,108 @@
+/* 
+*       Lab Two 
+* 
+*       Ibtihal Alkaseb 
+*       s215513 
+*       Group 1 
+*/
+
+
+
+import "mux.act";
+
+
+/*
+*       sel_source
+*       sends a sequence of select values to the mux
+*       false -> input a
+*       true -> input b
+*/
+
+defproc sel_source (chan!(int<1>) sel)
+{
+  chp {
+    sel!0;
+    sel!1;
+    sel!0;
+    sel!1;
+    sel!0;
+    sel!1
+  }
+}
+
+
+
+/*
+*       a_source
+*       generates values on input channel a
+*       these values are forwarded to the mux output when sel = false
+*/
+
+defproc a_source (chan!(int<8>) a)
+{
+  chp {
+    a!10;
+    a!100;
+    a!150
+  }
+}
+
+
+
+/*
+*       b_source
+*       generates values on input channel b
+*       these values are forwarded to the mux output when sel = true
+*/
+
+defproc b_source (chan!(int<8>) b)
+{
+  chp {
+    b!20;
+    b!200;
+    b!250
+  }
+}
+
+
+
+
+/*
+*       sink
+*       receives values from the mux output channel
+*       prints the received value to debug  mux behavior
+*/
+
+defproc sink (chan?(int<8>) y)
+{
+  int<8> x;
+  chp {
+    *[y?x; log("mux output: ", x)]
+  }
+}
+
+
+
+/*
+*	test 
+* 
+*	channels: 
+*	s : select signal 
+*	a : input channel a 
+*	b : input channel b 
+*	y : mux output channel 
+* 
+*	the mux selects between a and b based on s 
+*/
+
+defproc test()
+{
+  chan(int<1>) s;
+  chan(int<8>) a, b, y;
+
+  sel_source ss(s);
+  a_source sa(a);
+  b_source sb(b);
+  mux m(s, a, b, y);
+  sink si(y);
+}
