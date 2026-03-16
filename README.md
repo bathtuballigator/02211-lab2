@@ -153,7 +153,9 @@ datapath_source.act
 datapath_demux.act
 ```
 I was able to run the simulation command as specified in the lab for the source, but for the demux there was a parser error, probably resulting from the segmentation fault during synthesis.
-As such, I was unable to run the simulation and verify. The demux behaved appropriately when tested in part 1. I was not able to set up a test structure for the source in time, but it behaved as intended during a test with connecting it to a sink in part 1.
+As such, I was unable to run the simulation and verify. The demux behaved appropriately when tested in part 1. I was not able to set up a test structure for the source in time, but it behaved as intended during a test with connecting it to a sink in part 1. 
+
+I assume the errors stem from improper syntax, or possibly an error in the workflow.
 ***
 
 # Ibtihal Alkaseb, s215513
