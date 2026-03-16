@@ -124,7 +124,39 @@ source test_twoway_copy_prs.scr
 ***
 
 # Benedicte Manon Elgaard Jensen, s201905
-
+## Part 1: CHP
+ACT descriptions of dataflow components source and demux:
+```
+source.act
+demux.act
+```
+Test file for demux.
+Sources are made using templates, and test statement is updated to change input values to the demux to test cases.
+```
+test_demux.act
+```
+Commands used to test demux
+```
+$ actsim -p test test_demux.act
+actsim> cycle
+```
+### Part 2: Synthesis
+NOTE: A segmentation fault occured while synthesizing the demux, but a file was generated anyways.
+ACT synthesis of source (outputting 0 token stream) and demux:
+```
+synth_source.act
+synth_demux.act
+```
+Datapath files for the components
+```
+datapath_source.act
+datapath_demux.act
+```
+When attempting to simulate, the following error occured:
+```
+FATAL: Could not open configuration file `lint_opts.conf` for reading
+```
+As such, I was unable to run the simulation and verify. The demux behaved appropriately when tested in part 1.
 ***
 
 # Ibtihal Alkaseb, s215513
