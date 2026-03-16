@@ -32,6 +32,94 @@ The goal of this lab is to write ACT-CHP descriptions of data flow elements, run
 ***
 
 # Arjun Babu Anand, s252759
+### Part 1: CHP
+
+ACT descriptions of dataflow components Twoway Copy and token buff:
+```
+tokenbuf_2waycopy.act
+```
+Test files :
+```
+test_tokenbuf_2waycopy.act
+```
+scripts used for simulations:
+```
+test_tokenbuf_2waycopy.scr
+```
+
+### Part 2: Synthesis
+ACT synthesis of sink and mux:
+```
+twoway_copy_prs.act
+token_buf_prs.act
+```
+Datapath files for sink and mux:
+```
+datapath_token_buf.act
+datapath_twoway_copy.act
+```
+scripts used for simulations:
+```
+test_twoway_copy_prs.scr
+test_token_buf_prs.scr
+```
+
+## How to run## Testing
+
+### Part 1
+
+1. **Test `test_token_buff`**
+
+Run:
+``` 
+actsim test_tokenbuf_2waycopy.act 'test_token_buff'
+```
+
+Then in the CLI run:
+```
+source test_tokenbuf_2waycopy.scr
+```
+
+2. **Test `test_twoway_copy`**
+
+Run:
+```
+actsim test_tokenbuf_2waycopy.act 'test_twoway_copy'
+```
+
+Then in the CLI run:
+```
+source test_tokenbuf_2waycopy.scr
+```
+
+---
+
+### Part 2
+
+1. **Test `sdt_test_token_buff`**
+
+Run:
+```
+actsim -ref=1 -Tsky130l token_buf_prs.act 'sdt_test_token_buff'
+```
+
+Then in the CLI run:
+```
+source test_token_buf_prs.scr
+```
+
+2. **Test `sdt_test_twoway_copy`**
+
+Run:
+```
+actsim -ref=1 -Tsky130l twoway_copy_prs.act 'sdt_test_twoway_copy'
+```
+
+Then in the CLI run:
+```
+source test_twoway_copy_prs.src
+```
+***
 
 ***
 
