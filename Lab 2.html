@@ -8,7 +8,7 @@
 <h2>Part 2: Synthesis</h2>
 <p>to run synthesis for your designs run:<br><br><code>chp2prs -b -o abc -e datapath.act &lt;your actfile&gt; &lt;your process&gt; &lt;out.act&gt;<br><br>-b: bundled data (if removed it uses QDI)<br>-o: logic optimisation method<br>-e: expression_file.act all optimized logic block definitions will be stored there </code><code></code></p>
 <p>When simulating the Syntesis result so PRS level use:</p>
-<p><code>actsim -ref=1 -Tsky130 &lt;out.act&gt;</code></p>
+<p><code>actsim -ref=1 -Tsky130l &lt;out.act&gt;</code></p>
 <p><code>-ref=1: it is instructing the sim to use the first refinment which is your PRS, the -ref=0 is your CHP</code></p>
 <p>The ACT synthesis uses some standard libraries which has a number of pre-defined components that you should have a look at. (You dont need to write new production rules for this lab.) The ACT standard library is located in $ACT_HOME/act/std/, and contains a number of ACT files you can use. In particular, you should use:</p>
 <p>&nbsp; &nbsp; cells.act: this contains definitions of standard gates (with descriptive names), including latches. Note that this also contains the definition of a full-adder cell (FAX1).<br>&nbsp; &nbsp; channel.act: this contains definitions of standard channels, including bundled-data channels. the synthesis will use the bd&lt;8&gt; channel for 8-bit bundled-data channels. A channel C of type bd&lt;8&gt; will have fields C.r (request), C.a (acknowledge), and an array of data bits C.d[0] through C.d[7].&nbsp;</p>

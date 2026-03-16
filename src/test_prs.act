@@ -1,0 +1,36 @@
+import "build/oneplace_prs.act";
+import "build/adder_prs.act";
+
+template <pint N> defproc source (chan!(int<8>) out)
+{
+  int<8> i;
+  chp {
+    i := 0;
+  *[ i < 10 * N -> out!i; log("Sending value: ", i);
+  i := i + N ]
+  }
+}
+
+
+defproc sink(chan?(int<8>) in)
+{
+	int<8> val;
+	chp{
+	*[in?val ; log("Received value: ", val)]
+	}
+}
+
+defproc test_oneplace() 
+{
+  sink snk;
+  source<1> src;
+  sdt_oneplace buf(src.out, snk.in);
+}
+
+defproc test_adder()
+{
+  sink snk;
+  source<1> src1;
+  source<2> src2;
+  sdt_adder a(src1.out, src2.out, snk.in);
+}

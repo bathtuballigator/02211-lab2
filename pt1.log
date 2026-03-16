@@ -1,0 +1,56 @@
+Performing test on oneplace
+==========================
+[                  20] <src>  Sending value: 0
+[                  30] <snk>  Received value: 0
+[                  40] <src>  Sending value: 1
+[                  50] <snk>  Received value: 1
+[                  60] <src>  Sending value: 2
+[                  70] <snk>  Received value: 2
+[                  80] <src>  Sending value: 3
+[                  90] <snk>  Received value: 3
+[                 100] <src>  Sending value: 4
+[                 110] <snk>  Received value: 4
+[                 120] <src>  Sending value: 5
+[                 130] <snk>  Received value: 5
+[                 140] <src>  Sending value: 6
+[                 150] <snk>  Received value: 6
+[                 160] <src>  Sending value: 7
+[                 170] <snk>  Received value: 7
+[                 180] <src>  Sending value: 8
+[                 190] <snk>  Received value: 8
+[                 200] <src>  Sending value: 9
+[                 210] <snk>  Received value: 9
+==========================
+Performing test on adder
+==========================
+[                  20] <src1>  Sending value: 0
+[                  30] <src2>  Sending value: 0
+[                  50] <snk>  Received value: 0
+[                  60] <src1>  Sending value: 1
+[                  70] <src2>  Sending value: 2
+[                  90] <snk>  Received value: 3
+[                 100] <src1>  Sending value: 2
+[                 110] <src2>  Sending value: 4
+[                 130] <snk>  Received value: 6
+[                 140] <src1>  Sending value: 3
+[                 150] <src2>  Sending value: 6
+[                 170] <snk>  Received value: 9
+[                 180] <src1>  Sending value: 4
+[                 190] <src2>  Sending value: 8
+[                 210] <snk>  Received value: 12
+[                 220] <src1>  Sending value: 5
+[                 230] <src2>  Sending value: 10
+[                 250] <snk>  Received value: 15
+[                 260] <src1>  Sending value: 6
+[                 270] <src2>  Sending value: 12
+[                 290] <snk>  Received value: 18
+[                 300] <src1>  Sending value: 7
+[                 310] <src2>  Sending value: 14
+[                 330] <snk>  Received value: 21
+[                 340] <src1>  Sending value: 8
+[                 350] <src2>  Sending value: 16
+[                 370] <snk>  Received value: 24
+[                 380] <src1>  Sending value: 9
+[                 390] <src2>  Sending value: 18
+[                 410] <snk>  Received value: 27
+==========================
