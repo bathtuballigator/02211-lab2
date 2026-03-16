@@ -1,0 +1,14 @@
+mode reset
+set GND 0
+
+set Reset 1
+cycle
+set Reset 0
+mode run
+
+watch y.a y.r y.d[0] y.d[1] y.d[2] y.d[3] y.d[4] y.d[5] y.d[6] y.d[7] 
+watch a.a a.r a.d[0] a.d[1] a.d[2] a.d[3] a.d[4] a.d[5] a.d[6] a.d[7] 
+
+cycle 
+cycle 
+exit

@@ -1,0 +1,187 @@
+import "test_tokenbuf_2waycopy.act";
+import "syn/bdopt/_all_.act";
+open syn;
+import "datapath_twoway_copy.act";
+
+defproc sdt_Twoway_copy <: Twoway_copy ()
++{
+  syn::sdtvar<8> i;
+  syn::sdtchan<8> out1;
+  syn::sdtchan<8> out2;
+  syn::sdtchan<8> in;
+}
+{
+ refine {
+   syn::var_int_ports<8,1,2> var_i(i);
+   syn::muxoutport<8,1> out2_muxo(out2);
+   syn::muxoutport<8,1> out1_muxo(out1);
+   syn::muxinport<8,1> in_muxi(in);
+   a1of1 c0;
+   syn::trueto1of2 e0;
+   a1of1 c1;
+   a1of1 c2;
+   syn::recvport<8,8> s_0(c2,in_muxi.m[0],var_i.in[0]);   a1of1 c3;
+   a1of1 c4;
+   a1of1 c5;
+   syn::semi<1> s_1(c4,{c5});
+  syn::expr::nullint<8> e1(var_i.out[0]);
+   syn::expr::blk0 e2(e1.out.d);
+   // wrap and ctl bypass
+   syn::expr::nullint<8> e3();
+   e3.out.d=e2.out;
+   e1.out.r = e3.out.r;
+   std::gates::ctree<1,false> ackmerge3;
+   /* delay: 6.642e-11 */
+   syn::delay<1> delayblk3 (ackmerge3.out, e3.out.a);
+   e1.out.a = ackmerge3.in[0];
+   //end expr blk0
+   syn::transfer<8> s_2(c5, e3.out,out1_muxo.m[0]);
+   a1of1 c6;
+   a1of1 c7;
+   syn::semi<1> s_3(c6,{c7});
+  syn::expr::nullint<8> e4(var_i.out[1]);
+   syn::expr::blk1 e5(e4.out.d);
+   // wrap and ctl bypass
+   syn::expr::nullint<8> e6();
+   e6.out.d=e5.out;
+   e4.out.r = e6.out.r;
+   std::gates::ctree<1,false> ackmerge6;
+   /* delay: 6.642e-11 */
+   syn::delay<1> delayblk6 (ackmerge6.out, e6.out.a);
+   e4.out.a = ackmerge6.in[0];
+   //end expr blk1
+   syn::transfer<8> s_4(c7, e6.out,out2_muxo.m[0]);
+   syn::comma<2> s_5(c3,{c4,c6});
+   syn::semi<2> s_6(c1,{c2,c3});
+   syn::loop<1> s_7(c0,{e0.out},{c1});
+/*--- connect reset to go signal ---*/
+   a1of1 c8;
+   syn::sinit s8 (c0);
+ }
+}
+
+defproc sdt_sink <: sink ()
++{
+  syn::sdtvar<8> v;
+  syn::sdtchan<8> X;
+}
+{
+ refine {
+   syn::var_int_in_ports<8,1> var_v(v);
+   syn::muxinport<8,1> X_muxi(X);
+   a1of1 c0;
+   syn::trueto1of2 e0;
+   a1of1 c1;
+   a1of1 c2;
+   syn::recvport<8,8> s_0(c2,X_muxi.m[0],var_v.in[0]);   a1of1 c3;
+   syn::sskip s_1(c3);
+   syn::semi<2> s_2(c1,{c2,c3});
+   syn::loop<1> s_3(c0,{e0.out},{c1});
+/*--- connect reset to go signal ---*/
+   a1of1 c4;
+   syn::sinit s4 (c0);
+ }
+}
+
+defproc sdt_source <: source ()
++{
+  syn::sdtvar<8> i;
+  syn::sdtchan<8> X;
+}
+{
+ refine {
+   syn::muxoutport<8,1> X_muxo(X);
+   syn::var_int_ports<8,2,4> var_i(i);
+   a1of1 c0;
+   a1of1 c1;
+   syn::expr::blk2 e0();
+   // wrap and ctl bypass
+   syn::expr::nullint<8> e1();
+   e1.out.d=e0.out;
+   e1.out.a = e1.out.r;
+   //end expr blk2
+   syn::transfer<8> s_0(c1, e1.out,var_i.in[0]);
+   a1of1 c2;
+  syn::expr::nullint<8> e2(var_i.out[0]);
+  syn::expr::nullint<8> e3(var_i.out[1]);
+   syn::expr::blk3 e4(e3.out.d, e2.out.d);
+   // wrap and ctl bypass
+   syn::expr::null e5();
+   e5.out.d[0]=e4.out;
+   e3.out.r = e5.out.r;
+   e2.out.r = e5.out.r;
+   std::gates::ctree<2,false> ackmerge5;
+   /* delay: 1.6198e-10 */
+   syn::delay<1> delayblk5 (ackmerge5.out, e5.out.a);
+   e3.out.a = ackmerge5.in[0];
+   e2.out.a = ackmerge5.in[1];
+   //end expr blk3
+   syn::sdtvar<1> fvar0;
+   syn::var_int_ports<1,1,1> var_fvar0(fvar0);
+   a1of1 c3;
+   syn::transfer<1> s_1(c3, e5.out,var_fvar0.in[0]);
+   a1of1 c4;
+   syn::fullseq s_2(c4,c3);
+  syn::expr::nullint<1> e6(var_fvar0.out[0]);
+   syn::bdto1of2 e7;
+   e7.out.r = c4.r; c4.a = e6.out.r; e7.out.d=e6.out.d; e7.out.a=e6.out.a;
+   a1of1 c5;
+   a1of1 c6;
+  syn::expr::nullint<8> e8(var_i.out[2]);
+   syn::expr::blk4 e9(e8.out.d);
+   // wrap and ctl bypass
+   syn::expr::nullint<8> e10();
+   e10.out.d=e9.out;
+   e8.out.r = e10.out.r;
+   std::gates::ctree<1,false> ackmerge10;
+   /* delay: 6.642e-11 */
+   syn::delay<1> delayblk10 (ackmerge10.out, e10.out.a);
+   e8.out.a = ackmerge10.in[0];
+   //end expr blk4
+   syn::transfer<8> s_3(c6, e10.out,X_muxo.m[0]);
+   a1of1 c7;
+  syn::expr::nullint<8> e11(var_i.out[3]);
+   syn::expr::blk5 e12(e11.out.d);
+   // wrap and ctl bypass
+   syn::expr::nullint<8> e13();
+   e13.out.d=e12.out;
+   e11.out.r = e13.out.r;
+   std::gates::ctree<1,false> ackmerge13;
+   /* delay: 6.096e-10 */
+   syn::delay<2> delayblk13 (ackmerge13.out, e13.out.a);
+   e11.out.a = ackmerge13.in[0];
+   //end expr blk5
+   syn::sdtvar<8> fvar1;
+   syn::var_int_ports<8,1,1> var_fvar1(fvar1);
+   a1of1 c8;
+   a1of1 c9;
+   syn::fullseq s_4(c8,c9);
+   syn::transfer<8> s_5(c9, e13.out,var_fvar1.in[0]);
+   a1of1 c10;
+  syn::expr::nullint<8> e14(var_fvar1.out[0]);
+   syn::transfer<8> s_6(c10, e14.out,var_i.in[1]);
+   syn::semi<2> s_7(c7,{c8,c10});
+   a1of1 c11;
+   syn::sskip s_8(c11);
+   syn::semi<3> s_9(c5,{c6,c7,c11});
+   syn::loop<1> s_10(c2,{e7.out},{c5});
+   syn::semi<2> s_11(c0,{c1,c2});
+/*--- connect reset to go signal ---*/
+   a1of1 c12;
+   syn::sinit s12 (c0);
+ }
+}
+
+defproc sdt_test_twoway_copy <: test_twoway_copy ()
++{
+  sdt_Twoway_copy b;
+  sdt_sink snk1;
+  sdt_source src;
+  syn::sdtchan<8> y;
+  syn::sdtchan<8> x;
+  syn::sdtchan<8> a;
+  sdt_sink snk;
+}
+{
+}
+

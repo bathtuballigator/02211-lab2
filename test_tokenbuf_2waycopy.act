@@ -1,0 +1,35 @@
+import "tokenbuf_2waycopy.act";
+defproc source (chan!(int<8>) X)
+{
+  int<8> i;
+  chp {
+    i := 0;
+  *[ i < 10 -> X!i; i := i + 1; log ("Sent value: ", i) ]
+  }
+}
+
+defproc sink (chan?(int<8>) X)
+{
+  int<8> v;
+  chp {
+    *[ X?v; log ("Received value: ", v) ]
+  }
+}
+
+defproc test_twoway_copy()
+{
+   chan(int<8>) a, x, y;
+   source src(a);
+   sink snk(x); sink snk1(y);
+   
+   ${"2 Way Unconditional Copy "};
+   Twoway_copy b(a, x, y);
+}
+
+defproc test_token_buff(){
+   chan(int<8>) a, y;
+   ${"Token Buff "};
+   source src(a);
+   sink snk(y);
+   token_buff b(a,y);
+}
