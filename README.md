@@ -117,7 +117,7 @@ actsim -ref=1 -Tsky130l twoway_copy_prs.act 'sdt_test_twoway_copy'
 
 Then in the CLI run:
 ```
-source test_twoway_copy_prs.src
+source test_twoway_copy_prs.scr
 ```
 ***
 
