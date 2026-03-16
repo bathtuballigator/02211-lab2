@@ -11,9 +11,9 @@ defproc sdt_oneplace <: oneplace ()
 }
 {
  refine {
-   syn::muxinport<8,1> l_muxi(l);
-   syn::var_int_ports<8,1,1> var_x(x);
    syn::muxoutport<8,1> r_muxo(r);
+   syn::var_int_ports<8,1,1> var_x(x);
+   syn::muxinport<8,1> l_muxi(l);
    a1of1 c0;
    syn::trueto1of2 e0;
    a1of1 c1;

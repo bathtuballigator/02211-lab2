@@ -302,4 +302,28 @@ These occur due to transient signal conflicts and gate-level timing effects in t
 
 # Rose Carbery Timlin, s260105
 
+## Files included
+
+ACT descriptions of dataflow components one-place buffer and adder:
+```
+src/adder.act
+src/oneplace.act
+```
+Testing ACT code:
+```
+test.act
+test_prs.act
+```
+Final testing scripts:
+```
+test_pt1.sh 
+test_pt2.sh
+```
 ***
+
+## How to run:
+Make the two testing scripts executable with `chmod +x <script>`, then run them with 
+`./test_pt1.sh` and `./test_pt2.sh`. 
+The testing script for part 1 will automatically run the testing routines for each part,
+and the script for part two will first synthesize prs code for each component, 
+then test it under the same scenarios.

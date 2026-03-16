@@ -13,11 +13,11 @@ defproc sdt_adder <: adder ()
 }
 {
  refine {
-   syn::muxinport<8,1> n1_muxi(n1);
-   syn::var_int_ports<8,2,2> var_sum(sum);
-   syn::muxoutport<8,1> out_muxo(out);
    syn::var_int_ports<8,1,1> var_tmp(tmp);
    syn::muxinport<8,1> n2_muxi(n2);
+   syn::var_int_ports<8,2,2> var_sum(sum);
+   syn::muxoutport<8,1> out_muxo(out);
+   syn::muxinport<8,1> n1_muxi(n1);
    a1of1 c0;
    syn::trueto1of2 e0;
    a1of1 c1;
